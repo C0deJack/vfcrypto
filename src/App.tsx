@@ -1,16 +1,21 @@
 import React from 'react';
-import { getCurrencies, getCurrency } from './services/api-service';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import Currencies from './Currencies/Currencies';
+import Currency from './Currency/Currency';
 
 import './App.scss';
 
 const App: React.FC = () => {
 
-  getCurrencies('JPY');
-
-  getCurrency('bitcoin', 'KRW')
-
   return (
-    <div className="App">TEST</div>
+    <Router>
+      <div className="App">TEST</div>
+      <Switch>
+        <Route exact path="/" component={Currencies} />
+        <Route path={"/:cryptoCurrency"} component={Currency} />
+        <Route component={Currencies} />
+      </Switch>
+    </Router>
   );
 }
 
