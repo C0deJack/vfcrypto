@@ -1,0 +1,9 @@
+{
+    "displayCurrencies": {
+        "USD": "$",
+        "EUR": "€",
+        "GBP": "£",
+        "JPY": "¥",
+        "KRW": "₩"
+    }
+}

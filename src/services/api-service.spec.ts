@@ -8,7 +8,7 @@ const mock = {
 };
 
 // file under test
-import { getCurrencies, getCurrency } from './api-service';
+import { fetchCryptoCurrencies, fetchCryptoCurrency } from './api-service';
 
 describe('api-service', () => {
 
@@ -24,10 +24,10 @@ describe('api-service', () => {
         globalAny.fetch.mockClear();
     })
 
-    describe('getCurrencies', () => {
+    describe('fetchCryptoCurrencies', () => {
 
         it('calls fetch with the correct url', done => {
-            getCurrencies(); 
+            fetchCryptoCurrencies(); 
             expect(globalAny.fetch).toHaveBeenCalledTimes(1);
             expect(globalAny.fetch).toHaveBeenCalledWith(mock.baseUrl + mock.urlTenLimit);
             done();
@@ -35,17 +35,17 @@ describe('api-service', () => {
 
         it('adds the currency to the url if not the default USD', done => {
             const testCurrency = 'JPY'
-            getCurrencies(testCurrency);
+            fetchCryptoCurrencies(testCurrency);
             expect(globalAny.fetch).toHaveBeenCalledTimes(1);
             expect(globalAny.fetch).toHaveBeenCalledWith(`${mock.baseUrl}${mock.urlTenLimit}&convert=${testCurrency}`);
             done();
         });
     });
 
-    describe('getCurrency', () => {
+    describe('fetchCryptoCurrency', () => {
 
         it('calls fetch with the correct url', done => {
-            getCurrency(mock.currency); 
+            fetchCryptoCurrency(mock.currency); 
             expect(globalAny.fetch).toHaveBeenCalledTimes(1);
             expect(globalAny.fetch).toHaveBeenCalledWith(`${mock.baseUrl}/${mock.currency}/`);
             done();
@@ -53,7 +53,7 @@ describe('api-service', () => {
 
         it('adds the currency to the url if not the default USD', done => {
             const testCurrency = 'JPY'
-            getCurrency(mock.currency, testCurrency);
+            fetchCryptoCurrency(mock.currency, testCurrency);
             expect(globalAny.fetch).toHaveBeenCalledTimes(1);
             expect(globalAny.fetch).toHaveBeenCalledWith(`${mock.baseUrl}/${mock.currency}/?convert=${testCurrency}`);
             done();

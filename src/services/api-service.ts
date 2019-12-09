@@ -1,39 +1,31 @@
-import { Currency, CryptoCurrency, CurrenciesData, CurrenciesDataItem } from '../types/currencies';
+import { DisplayCurrency, CryptoCurrency, CryptoCurrenciesData, CryptoCurrenciesDataItem } from '../types';
 
 export const baseUrl = 'https://api.coinmarketcap.com/v1/ticker';
 
-export const getCurrencies = (conversion: Currency = 'USD'): Promise<CurrenciesData> => {
+export const fetchCryptoCurrencies = (displayCurrency: DisplayCurrency = 'USD'): Promise<CryptoCurrenciesData> => {
 
     let url = baseUrl + '/?limit=10';
 
-    if (conversion !== 'USD') {
-        url = `${url}&convert=${conversion}`
+    if (displayCurrency !== 'USD') {
+        url = `${url}&convert=${displayCurrency}`
     }
 
 	return fetch(url)
 		.then(response => response.json())
-		.then(data => {
-            console.log(data);
-            return data;
-        })
-		.catch(err => console.error(err));
+		.then(data =>  data)
 }
 
-export const getCurrency = (cryptoCurrency: CryptoCurrency, conversion: Currency = 'USD'): Promise<CurrenciesDataItem> => {
+export const fetchCryptoCurrency = (cryptoCurrency: CryptoCurrency, displayCurrency: DisplayCurrency = 'USD'): Promise<CryptoCurrenciesDataItem> => {
 
     let url;
 
-    if (conversion !== 'USD') {
-        url = `${baseUrl}/${cryptoCurrency}/?convert=${conversion}`
+    if (displayCurrency !== 'USD') {
+        url = `${baseUrl}/${cryptoCurrency}/?convert=${displayCurrency}`
     } else {
         url = `${baseUrl}/${cryptoCurrency}/`;
     }
 
 	return fetch(url)
 		.then(response => response.json())
-		.then(data => {
-            console.log(data);
-            return data;
-        })
-		.catch(err => console.error(err));
+		.then(data =>  data)
 }
