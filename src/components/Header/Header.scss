@@ -1,0 +1,17 @@
+@import '../../common/styles/colors.scss';
+
+.header {
+
+    &__title {
+        margin: 10px;
+        font-size: 28px;
+        font-weight: 400;
+        padding: 12px 35px;
+        color: $grey;
+    }
+    
+    &__link {
+        display: inline-block;
+        text-decoration: none;
+    }
+}

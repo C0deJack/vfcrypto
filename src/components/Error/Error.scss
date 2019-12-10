@@ -1,0 +1,13 @@
+@import '../../common/styles/colors.scss';
+
+.error {
+    color: $dark-grey;
+    text-align: center;
+
+    &__title {
+        color: $grey;
+        font-size: 45px;
+        font-weight: 200;
+        margin: 0;
+    }
+}

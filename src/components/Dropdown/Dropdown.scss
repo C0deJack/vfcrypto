@@ -1,0 +1,28 @@
+@import '../../common/styles/colors.scss';
+
+.dropdown {
+
+    padding: 16px;
+    display: inline-block;
+    right: 30%;
+    position: absolute;
+
+    &__select {
+        border: none;
+        appearance: none;
+        -moz-appearance: none;
+        -ms-appearance: none;
+        -webkit-appearance: none;
+        padding: 14px 33px 14px 16px;
+        background-color: white;
+        box-shadow: 3px 3px $light-grey;
+        font-size: 16px;
+        color: $darker-grey;
+        margin-right: -10px;
+    }
+
+    &__arrow {
+        position: relative;
+        margin-left: -12px;
+    }
+}

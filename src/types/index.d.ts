@@ -1,15 +1,15 @@
 export type DisplayCurrency = 'EUR' | 'GBP' | 'JPY' | 'KRW' | 'USD';
 
-export type CryptoCurrency = string | 'bitcoin' | 'ethereum' | 'xrp' | 'tether' | 'bitcoin-cash' | 'litecoin' | 'eos' | 'binance-coin' | 'bitcoin-sv' | 'stellar';
+export type CryptoCurrencyId = string | 'bitcoin' | 'ethereum' | 'xrp' | 'tether' | 'bitcoin-cash' | 'litecoin' | 'eos' | 'binance-coin' | 'bitcoin-sv' | 'stellar';
 
-export type CryptoCurrenciesData = CryptoCurrenciesDataItem[];
+export type CryptoCurrenciesData = CryptoCurrencyData[];
 
 export type IsLoading = boolean;
 
 export type IsError = boolean;
 
-export interface CryptoCurrenciesDataItem {
-    id: CryptoCurrency;
+export interface CryptoCurrencyData {
+    id: CryptoCurrencyId;
     name: string; 
     symbol: string;
     rank: string; 
@@ -35,6 +35,8 @@ export type DisplayCurrencyAction = Action<DisplayCurrency>;
 
 export type GetCryptoCurrenciesAction = Action<CryptoCurrenciesData>;
 
+export type GetCryptoCurrencyAction = Action<CryptoCurrencyData>
+
 export type IsLoadingAction = Action<IsLoading>;
 
 export type IsErrorAction = Action<IsError>;
@@ -42,6 +44,8 @@ export type IsErrorAction = Action<IsError>;
 export interface AppState {
     displayCurrency: DisplayCurrency;
     cryptoCurrenciesData: CryptoCurrenciesData;
+    cryptoCurrencyData: CryptoCurrencyData;
     isLoading: IsLoading;
     isError: IsError;
+    cryptoCurrencyId: CryptoCurrencyId;
 }

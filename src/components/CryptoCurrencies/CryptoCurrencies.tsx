@@ -6,7 +6,9 @@ import TableRows from '../TableRows/TableRows';
 import Loading from '../Loading/Loading';
 import Error from '../Error/Error';
 
-interface CryptoCurrenciesProps {
+import './CryptoCurrencies.scss';
+
+export interface CryptoCurrenciesProps {
     cryptoCurrenciesData: CryptoCurrenciesData;
     displayCurrency: DisplayCurrency;
     isLoading: IsLoading;
@@ -19,7 +21,7 @@ interface CryptoCurrenciesDispatches {
 
 export type CombinedProps = CryptoCurrenciesProps & CryptoCurrenciesDispatches;
 
-class CryptoCurrencies extends Component<CombinedProps> {
+export class CryptoCurrencies extends Component<CombinedProps> {
     componentWillMount() {
         this.props.getCryptoCurrencies(this.props.displayCurrency)
     }
@@ -30,22 +32,19 @@ class CryptoCurrencies extends Component<CombinedProps> {
     render() {
         return (
             <>
-                <h3>CryptoCurrencies</h3>
-                <h4>{this.props.displayCurrency}</h4>
                 {this.props.isError ? <Error />
                     : (
                     this.props.isLoading ? <Loading /> 
                         : (
-                        <table>
-                            <thead>
+                        <table className="crypto-currencies__table">
+                            <thead className="crypto-currencies__table-headers">
                                 <tr>
-                                    <th>CRYPTOCURRENCY</th>
-                                    <th>PRICE</th>
-                                    <th>MARKET CAP</th>
-                                    <th>24HR CHANGE</th>
+                                    <th className="crypto-currencies__table-data crypto-currencies__table-left">CRYPTOCURRENCY</th>
+                                    <th className="crypto-currencies__table-data">PRICE</th>
+                                    <th className="crypto-currencies__table-data">MARKET CAP</th>
+                                    <th className="crypto-currencies__table-data crypto-currencies__table-right">24HR CHANGE</th>
                                 </tr>
                             </thead>
-
                             <tbody>
                                 <TableRows
                                     displayCurrency={this.props.displayCurrency} 

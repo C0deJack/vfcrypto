@@ -1,0 +1,31 @@
+@import '../../common/styles/colors.scss';
+
+.crypto-currencies {
+    
+    &__table {
+        width: 100%;
+        text-align: left;
+        color: $grey;
+        border-collapse: collapse;
+
+        &-headers {
+            font-size: 12px;
+            background-color: $light-grey;
+            color: $midder-grey;
+            border-top: 1px solid $midder-grey;
+            border-bottom: 1px solid $midder-grey;
+        }
+
+        &-data {
+            padding: 10px;
+        }
+
+        &-left {
+            padding-left: 10%;
+        }
+
+        &-right {
+            padding-right: 5%;
+        }
+    }
+}

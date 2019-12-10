@@ -15,7 +15,7 @@
         "percent_change_24h": "2.73", 
         "percent_change_7d": "-1.51", 
         "last_updated": "1575585039"
-    }, 
+    },
     {
         "id": "ethereum", 
         "name": "Ethereum", 
@@ -97,7 +97,7 @@
         "total_supply": "63777321.0", 
         "max_supply": "84000000.0", 
         "percent_change_1h": "0.47", 
-        "percent_change_24h": "0.09", 
+        "percent_change_24h": "-0.09", 
         "percent_change_7d": "-5.35", 
         "last_updated": "1575585064"
     }, 
@@ -148,7 +148,7 @@
         "total_supply": "18068415.0", 
         "max_supply": "21000000.0", 
         "percent_change_1h": "1.43", 
-        "percent_change_24h": "1.12", 
+        "percent_change_24h": "-1.12", 
         "percent_change_7d": "-10.55", 
         "last_updated": "1575585073"
     }, 

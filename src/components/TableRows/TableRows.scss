@@ -1,0 +1,39 @@
+@import '../../common/styles/colors.scss';
+
+.table-rows {
+
+    color: $grey;
+
+    &__link {
+        text-decoration: none;
+        color: $darker-grey;
+    }
+
+    &__data {
+        padding: 20px;
+        border-bottom: 1px solid $light-grey;
+
+        &-arrow {
+            height: 13px;
+            padding-left: 4px;
+        }
+
+        &-green {
+            color: $green;
+            font-weight: 600;
+        }
+
+        &-red {
+            color: $red;
+            font-weight: 600;
+        }
+
+        &-left {
+            padding-left: 10%;
+        }
+
+        &-right {
+            padding-right: 5%;
+        }
+    }
+}

@@ -1,8 +1,13 @@
 .loading {
-	background-image: url('../../assets/loading.svg');
-	background-repeat: no-repeat;
-	background-position: center center;
-    background-size: 100px;
-    height: 100px;
-    width: 100px;
+    text-align: center;
+
+    h3 {
+        position: absolute;
+        left: 45%;
+        top: 30%;
+    }
+
+    img {
+        display: inline-block;
+    }
 }
