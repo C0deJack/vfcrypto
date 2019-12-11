@@ -1,16 +1,16 @@
-import React from 'react'
+import React from 'react';
+import loadingSvg from '../../assets/loading.svg';
 import './Loading.scss';
 
-const loadingSvg = require('../../assets/loading.svg');
 
 const Loading = () => {
 
-    return (
-        <div className="loading">
-            <h3>LOADING</h3>
-            <img alt="loading icon" src={loadingSvg} />
-        </div>
-    )
-}
+	return (
+		<div className='loading'>
+			<h3>LOADING</h3>
+			<img alt='loading icon' src={loadingSvg} />
+		</div>
+	);
+};
 
 export default Loading;

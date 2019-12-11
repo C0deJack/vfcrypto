@@ -1,5 +1,5 @@
-import { IsErrorAction } from '../types';
 import { SET_IS_ERROR } from '../actions/setIsError';
+import { IsErrorAction } from '../types';
 
 export const initialState = false;
 

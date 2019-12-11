@@ -6,18 +6,18 @@ import Header from './components/Header/Header';
 
 import './App.scss';
 
-const App: React.FC = () => {
+const App:React.FC = () => {
 
-  return (
-    <Router>
-      <Header />
-      <Switch>
-        <Route exact path="/" component={Currencies} />
-        <Route path={"/:cryptoCurrency"} component={Currency} />
-        <Route component={Currencies} />
-      </Switch>
-    </Router>
-  );
-}
+	return (
+		<Router>
+			<Header />
+			<Switch>
+				<Route exact={true} path='/' component={Currencies} />
+				<Route path={'/:cryptoCurrency'} component={Currency} />
+				<Route component={Currencies} />
+			</Switch>
+		</Router>
+	);
+};
 
 export default App;

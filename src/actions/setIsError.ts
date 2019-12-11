@@ -1,4 +1,4 @@
-import { IsError, IsErrorAction } from "../types";
+import { IsError, IsErrorAction } from '../types';
 
 export const SET_IS_ERROR = 'SET_IS_ERROR';
 

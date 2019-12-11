@@ -1,5 +1,5 @@
-import { IsLoadingAction } from '../types';
 import { SET_IS_LOADING } from '../actions/setIsLoading';
+import { IsLoadingAction } from '../types';
 
 export const initialState = true;
 

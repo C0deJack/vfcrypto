@@ -1,4 +1,4 @@
-import { CryptoCurrencyIdAction, CryptoCurrencyId } from "../types";
+import { CryptoCurrencyId, CryptoCurrencyIdAction } from '../types';
 
 export const SET_CRYPTO_CURRENCY_ID = 'SET_CRYPTO_CURRENCY_ID';
 

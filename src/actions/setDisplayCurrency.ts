@@ -1,4 +1,4 @@
-import { DisplayCurrency, DisplayCurrencyAction } from "../types";
+import { DisplayCurrency, DisplayCurrencyAction } from '../types';
 
 export const SET_DISPLAY_CURRENCY = 'SET_DISPLAY_CURRENCY';
 

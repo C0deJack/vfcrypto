@@ -1,5 +1,5 @@
-import { CryptoCurrencyIdAction } from '../types';
 import { SET_CRYPTO_CURRENCY_ID } from '../actions/setCryptoCurrencyId';
+import { CryptoCurrencyIdAction } from '../types';
 
 export const initialState = '';
 

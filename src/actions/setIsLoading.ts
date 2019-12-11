@@ -1,4 +1,4 @@
-import { IsLoading, IsLoadingAction } from "../types";
+import { IsLoading, IsLoadingAction } from '../types';
 
 export const SET_IS_LOADING = 'SET_IS_LOADING';
 

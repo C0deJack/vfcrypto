@@ -1,5 +1,5 @@
-import { DisplayCurrencyAction } from '../types';
 import { SET_DISPLAY_CURRENCY } from '../actions/setDisplayCurrency';
+import { DisplayCurrencyAction } from '../types';
 
 export const initialState = 'USD';
 

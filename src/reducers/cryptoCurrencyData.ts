@@ -1,5 +1,5 @@
-import { GetCryptoCurrencyAction } from '../types';
 import { GET_CRYPTO_CURRENCY } from '../actions/getCryptoCurrency';
+import { GetCryptoCurrencyAction } from '../types';
 
 export const initialState = [];
 

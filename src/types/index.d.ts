@@ -1,3 +1,6 @@
+import { AnyAction } from 'redux';
+import { ThunkDispatch} from 'redux-thunk';
+
 export type DisplayCurrency = 'EUR' | 'GBP' | 'JPY' | 'KRW' | 'USD';
 
 export type CryptoCurrencyId = string | 'bitcoin' | 'ethereum' | 'xrp' | 'tether' | 'bitcoin-cash' | 'litecoin' | 'eos' | 'binance-coin' | 'bitcoin-sv' | 'stellar';
@@ -15,7 +18,7 @@ interface CryptoDataItem {
     market_cap_usd: string; 
     available_supply: string;  
     total_supply: string;  
-    max_supply: string;  
+    max_supply: string | null;  
     percent_change_1h: string; 
     percent_change_24h: string;  
     percent_change_7d:  string; 
@@ -47,3 +50,5 @@ export interface AppState {
     isError: IsError;
     cryptoCurrencyId: CryptoCurrencyId;
 }
+
+export type MyDispatch = ThunkDispatch<AppState, void, AnyAction>;
