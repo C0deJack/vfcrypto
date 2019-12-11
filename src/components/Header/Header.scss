@@ -1,15 +1,61 @@
 @import '../../common/styles/colors.scss';
+@import '../../common/styles/variables.scss';
 
 .header {
+    height: 90px;
+
+    &__currency {
+        width: 400px;
+
+        &-circle,
+        &-title,
+        &-price {
+            display: inline-block;
+        }
+
+        &-circle {
+            background-color: $light-blue;
+            border-radius: 50%;
+            height: 35px;
+            width: 35px;
+            margin: 28px;
+        }
+
+        &-arrow {
+            height: 22px;
+            position: relative;
+            top: 6px;
+            left: 6px;
+        }
+
+        &-title {
+            font-size: 22px;
+            font-weight: $font-weight-heavy;
+            color: $grey;
+            position: relative;
+            top: 10px;
+        }
+
+        &-symbol {
+            font-size: $font-size-s;
+        }
+
+        &-price {
+            margin-left: 50px;
+            font-size: $font-size-xl;
+            font-weight: $font-weight-heavy;
+            color: $grey;
+        }
+    }
 
     &__title {
         margin: 10px;
-        font-size: 28px;
-        font-weight: 400;
+        font-size: $font-size-xxl;
+        font-weight: $font-weight-med;
         padding: 12px 35px;
         color: $grey;
     }
-    
+
     &__link {
         display: inline-block;
         text-decoration: none;

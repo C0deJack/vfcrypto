@@ -3,6 +3,7 @@ import cryptoCurrenciesData from './cryptoCurrenciesData';
 import cryptoCurrencyData from './cryptoCurrencyData';
 import isLoading from './isLoading';
 import isError from './isError';
+import cryptoCurrencyId from './cryptoCurrencyId';
 import { combineReducers } from 'redux';
 
 const rootReducer = combineReducers<any>({
@@ -10,7 +11,8 @@ const rootReducer = combineReducers<any>({
     cryptoCurrenciesData,
     cryptoCurrencyData,
     isLoading,
-    isError
+    isError,
+    cryptoCurrencyId
 });
 
 export default rootReducer;

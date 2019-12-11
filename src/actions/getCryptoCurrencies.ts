@@ -1,13 +1,15 @@
 import { DisplayCurrency } from "../types";
 import { fetchCryptoCurrencies } from '../services/api-service';
 import { Dispatch } from 'redux';
-import { SET_IS_LOADING } from "./setIsLoading";
-import { SET_IS_ERROR } from "./setIsError";
+import { setIsLoading } from "./setIsLoading";
+import { setIsError } from "./setIsError";
 
 export const GET_CRYPTO_CURRENCIES = 'GET_CRYPTO_CURRENCIES';
 
 export const getCryptoCurrencies = (displayCurrency:DisplayCurrency) => (dispatch:Dispatch) => {
 
+    dispatch(setIsLoading(true));
+    
     fetchCryptoCurrencies(displayCurrency)
     .then(data => {
         dispatch({
@@ -15,18 +17,9 @@ export const getCryptoCurrencies = (displayCurrency:DisplayCurrency) => (dispatc
             payload: data
         })
     })
-    .then(() => {
-        dispatch({
-            type: SET_IS_LOADING,
-            payload: false
-        })
-    })
+    .then(() => dispatch(setIsLoading(false)))
     .catch((err) => {
         console.error(err);
-        dispatch({
-            type: SET_IS_ERROR,
-            payload: true
-        })
-
+        dispatch(setIsError(true));
     })
 }
