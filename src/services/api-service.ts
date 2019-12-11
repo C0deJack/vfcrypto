@@ -1,12 +1,13 @@
 // import demoData from '../testUtils/demoData.json';
 // import demoDataItem from '../testUtils/demoDataItem.json';
+import { replaceNulls } from '../libs/replaceNulls';
 import { CryptoCurrencyId, CryptoData, DisplayCurrency } from '../types';
 
 export const baseUrl = 'https://api.coinmarketcap.com/v1/ticker';
 
 
 export const fetchCryptoCurrencies = (displayCurrency:DisplayCurrency = 'USD'):Promise<CryptoData> => {
-
+	// eslint-disable-next-line
 	let url;
 
 	if (displayCurrency !== 'USD') {
@@ -16,19 +17,19 @@ export const fetchCryptoCurrencies = (displayCurrency:DisplayCurrency = 'USD'):P
 	}
 
 	// Uncomment to return demo data if API is down
-	// return Promise.resolve(demoData);
+	// return Promise.resolve(replaceNulls(demoData));
+
 
 	return fetch(url)
 		.then(response => response.json())
-		.then(data =>  data);
-
+		.then(replaceNulls);
 };
 
 export const fetchCryptoCurrency = (
 	cryptoCurrency:CryptoCurrencyId,
 	displayCurrency:DisplayCurrency = 'USD',
 	):Promise<CryptoData> => {
-
+	// eslint-disable-next-line
 	let url;
 
 	if (displayCurrency !== 'USD') {
@@ -38,9 +39,9 @@ export const fetchCryptoCurrency = (
 	}
 
 	// Uncomment to return demo data if API is down
-	// return Promise.resolve(demoDataItem);
+	// return Promise.resolve(replaceNulls(demoDataItem));
 
 	return fetch(url)
 		.then(response => response.json())
-		.then(data =>  data);
+		.then(replaceNulls);
 };

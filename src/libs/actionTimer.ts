@@ -1,5 +1,5 @@
 
-export const actionTimer = (action, seconds:number = 60) => {
+export const actionTimer = (action:Function, seconds:number = 60) => {
 	const millisecondsInSeconds = 1000;
 	let timer;
 

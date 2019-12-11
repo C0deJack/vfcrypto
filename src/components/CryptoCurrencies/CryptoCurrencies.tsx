@@ -24,7 +24,7 @@ export interface CryptoCurrenciesProps {
 
 interface CryptoCurrenciesDispatches {
 	getCryptoCurrencies: (displayCurrency:DisplayCurrency) => void;
-	actionTimer: () => any;
+	actionTimer: () => void;
 }
 
 export type CombinedProps = CryptoCurrenciesProps & CryptoCurrenciesDispatches;

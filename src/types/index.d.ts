@@ -18,7 +18,7 @@ interface CryptoDataItem {
     market_cap_usd: string; 
     available_supply: string;  
     total_supply: string;  
-    max_supply: string | null;  
+    max_supply: string;  
     percent_change_1h: string; 
     percent_change_24h: string;  
     percent_change_7d:  string; 
@@ -31,8 +31,8 @@ export interface Action<T> {
 }
 
 export type DisplayCurrencyAction = Action<DisplayCurrency>; 
-export type GetCryptoCurrenciesAction = Action<CryptoData>;
-export type GetCryptoCurrencyAction = Action<CryptoData>
+export type CryptoCurrenciesAction = Action<CryptoData>;
+export type CryptoCurrencyAction = Action<CryptoData>
 export type IsLoadingAction = Action<IsLoading>;
 export type IsErrorAction = Action<IsError>;
 export type CryptoCurrencyIdAction = Action<CryptoCurrencyId>;
