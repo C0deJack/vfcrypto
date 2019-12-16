@@ -1,10 +1,11 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
 import NumberFormat from 'react-number-format';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import appConfig from '../../appConfig.json';
 import arrowLeftSvg from '../../assets/arrowLeft.svg';
 import Dropdown from '../../components/Dropdown/Dropdown';
+import { getLocalisedDateString } from '../../libs/date-utils';
 import { AppState, CryptoData, DisplayCurrency } from '../../types';
 
 import './Header.scss';
@@ -14,6 +15,7 @@ const displayCurrenciesMap = appConfig.displayCurrencies;
 interface HeaderProps {
 	cryptoCurrencyData: CryptoData;
 	displayCurrency: DisplayCurrency;
+	dateStamp: Date;
 }
 
 class Header extends Component<HeaderProps> {
@@ -47,6 +49,11 @@ class Header extends Component<HeaderProps> {
 						<h1 className='header__title'>VFCrypto</h1>
 					}
 				</Link>
+				{this.props.dateStamp &&
+					<span className='header__date'>
+						Last updated: {getLocalisedDateString(this.props.dateStamp, 'en-GB')}
+					</span>
+				}
 				<Dropdown />
 			</div>
 		);
@@ -56,6 +63,7 @@ class Header extends Component<HeaderProps> {
 const mapStateToProps = (state:AppState):HeaderProps => ({
 	cryptoCurrencyData: state.cryptoCurrencyData,
 	displayCurrency: state.displayCurrency,
+	dateStamp: state.dateStamp,
 });
 
 export default connect(mapStateToProps)(Header);

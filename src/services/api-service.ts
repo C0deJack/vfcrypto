@@ -1,12 +1,12 @@
+import { replaceNulls } from '../libs/replaceNulls';
 // import demoData from '../testUtils/demoData.json';
 // import demoDataItem from '../testUtils/demoDataItem.json';
-import { replaceNulls } from '../libs/replaceNulls';
-import { CryptoCurrencyId, CryptoData, DisplayCurrency } from '../types';
+import { CryptoCurrencyId, CryptoData, DateStampedCryptoData, DisplayCurrency } from '../types';
 
 export const baseUrl = 'https://api.coinmarketcap.com/v1/ticker';
 
 
-export const fetchCryptoCurrencies = (displayCurrency:DisplayCurrency = 'USD'):Promise<CryptoData> => {
+export const fetchCryptoCurrencies = (displayCurrency:DisplayCurrency = 'USD'):Promise<DateStampedCryptoData> => {
 	// eslint-disable-next-line
 	let url;
 
@@ -17,18 +17,32 @@ export const fetchCryptoCurrencies = (displayCurrency:DisplayCurrency = 'USD'):P
 	}
 
 	// Uncomment to return demo data if API is down
-	// return Promise.resolve(replaceNulls(demoData));
+	// const cryptoData:CryptoData = replaceNulls(demoData);
 
+	// const dateStampedDemoData = {
+	// 	dateStamp: new Date(),
+	// 	cryptoData,
+	// };
+
+	// return Promise.resolve(dateStampedDemoData);
 
 	return fetch(url)
 		.then(response => response.json())
-		.then(replaceNulls);
+		.then(replaceNulls)
+		.then((cryptoData:CryptoData) => {
+			const dateStamp = new Date();
+
+			return {
+				dateStamp,
+				cryptoData,
+			};
+		});
 };
 
 export const fetchCryptoCurrency = (
 	cryptoCurrency:CryptoCurrencyId,
 	displayCurrency:DisplayCurrency = 'USD',
-	):Promise<CryptoData> => {
+	):Promise<DateStampedCryptoData> => {
 	// eslint-disable-next-line
 	let url;
 
@@ -39,9 +53,24 @@ export const fetchCryptoCurrency = (
 	}
 
 	// Uncomment to return demo data if API is down
-	// return Promise.resolve(replaceNulls(demoDataItem));
+	// const cryptoData:CryptoData = replaceNulls(demoDataItem);
+
+	// const dateStampedDemoData = {
+	// 	dateStamp: new Date(),
+	// 	cryptoData,
+	// };
+
+	// return Promise.resolve(dateStampedDemoData);
 
 	return fetch(url)
 		.then(response => response.json())
-		.then(replaceNulls);
+		.then(replaceNulls)
+		.then((cryptoData:CryptoData) => {
+			const dateStamp = new Date();
+
+			return {
+				dateStamp,
+				cryptoData,
+			};
+		});
 };

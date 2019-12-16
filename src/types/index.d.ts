@@ -5,6 +5,11 @@ export type DisplayCurrency = 'EUR' | 'GBP' | 'JPY' | 'KRW' | 'USD';
 
 export type CryptoCurrencyId = string | 'bitcoin' | 'ethereum' | 'xrp' | 'tether' | 'bitcoin-cash' | 'litecoin' | 'eos' | 'binance-coin' | 'bitcoin-sv' | 'stellar';
 
+export interface DateStampedCryptoData {
+    dateStamp: Date;
+    cryptoData: CryptoData;
+}
+
 export type CryptoData = CryptoDataItem[]
 
 interface CryptoDataItem {
@@ -31,11 +36,12 @@ export interface Action<T> {
 }
 
 export type DisplayCurrencyAction = Action<DisplayCurrency>; 
-export type CryptoCurrenciesAction = Action<CryptoData>;
-export type CryptoCurrencyAction = Action<CryptoData>
+export type CryptoCurrenciesAction = Action<DateStampedCryptoData>;
+export type CryptoCurrencyAction = Action<DateStampedCryptoData>
 export type IsLoadingAction = Action<IsLoading>;
 export type IsErrorAction = Action<IsError>;
 export type CryptoCurrencyIdAction = Action<CryptoCurrencyId>;
+export type DateStampAction = Action<Date>;
 
 
 export type IsLoading = boolean;
@@ -49,6 +55,7 @@ export interface AppState {
     isLoading: IsLoading;
     isError: IsError;
     cryptoCurrencyId: CryptoCurrencyId;
+    dateStamp: Date;
 }
 
 export type MyDispatch = ThunkDispatch<AppState, void, AnyAction>;
